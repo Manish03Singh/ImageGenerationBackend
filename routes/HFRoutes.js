@@ -15,13 +15,21 @@ router.route('/').get((req, res) => {
 router.route('/').post(async(req, res) => {
     try{ 
         const {prompt} = req.body;
-        const aiResponse = await hf.textToImage({
-            inputs: prompt,
-            model: 'stabilityai/stable-diffusion-2',
-            parameters: {
-              negative_prompt: 'blurry',
-            },
-        });
+        // const aiResponse = await hf.textToImage({
+        //     inputs: prompt,
+        //     model: 'stabilityai/stable-diffusion-2',
+        //     parameters: {
+        //       negative_prompt: 'blurry',
+        //     },
+        // });
+        const aiResponse = await fetch(`https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-2`, 
+                              {
+                                method: "POST",
+                                headers: {
+                                    "Authorization": `Bearer ${process.env.HUGGING_FACE_API}`
+                                },
+                                inputs : JSON.stringify(prompt)}
+                            );
         console.log(aiResponse)
         const buffer = await aiResponse.arrayBuffer()
         const image = `data:image/jpeg;base64,${Buffer.from(buffer).toString('base64')}`;
