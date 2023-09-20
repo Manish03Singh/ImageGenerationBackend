@@ -1,6 +1,7 @@
 import express, { Router } from "express";
 import * as dotenv from 'dotenv';
 import { HfInference } from "@huggingface/inference";
+import fetch from "node-fetch";
 
 dotenv.config();
 const router = express.Router();
