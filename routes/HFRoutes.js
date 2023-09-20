@@ -28,7 +28,7 @@ router.route('/').post(async(req, res) => {
                                 headers: {
                                     "Authorization": `Bearer ${process.env.HUGGING_FACE_API}`
                                 },
-                                inputs : JSON.stringify(prompt)}
+                                body : JSON.stringify({inputs:prompt})}
                             );
         console.log(aiResponse)
         const buffer = await aiResponse.arrayBuffer()
