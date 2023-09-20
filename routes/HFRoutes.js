@@ -30,7 +30,7 @@ router.route('/').post(async(req, res) => {
                                 },
                                 body : JSON.stringify({inputs:prompt})}
                             );
-        console.log(aiResponse)
+        //console.log(aiResponse)
         const buffer = await aiResponse.arrayBuffer()
         const image = `data:image/jpeg;base64,${Buffer.from(buffer).toString('base64')}`;
         //console.log(image)
