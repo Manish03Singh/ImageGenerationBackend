@@ -4,6 +4,7 @@ import cors from 'cors';
 import ConectDB from './mongodb/connect.js';
 import postRoutes from './routes/postRoutes.js'
 import HFRoutes from './routes/HFRoutes.js'
+import shapeEHF from './routes/Shape-HFOpenai.js'
 
 dotenv.config();
 const app = express();
@@ -13,6 +14,7 @@ ConectDB();
 
 app.use('/api/v1/post',postRoutes);
 app.use('/api/v1/create',HFRoutes);
+app.use('/api/v1/create3D',shapeEHF);
 
 app.get('/', async(req, res) => {
     res.send('Hello from HF!')
