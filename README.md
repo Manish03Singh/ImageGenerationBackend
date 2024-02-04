@@ -9,5 +9,5 @@
 <p>User name, prompt and image is stored in DB</p>
 <p>Hugging face API <a href="https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0">stabilityai</a> is used for image generation.</p>
 
-
+# Connect
 <p>Visit me on <a href="https://www.linkedin.com/in/manish-kumar-singh-12a28a190/">linkedin</a> and <a href="https://twitter.com/Manish_03_Singh">twitter</a></p>
